@@ -10,7 +10,7 @@ const DATA_FILE = path.join(__dirname, "faculty.json");
 const PUBLIC_DIR = path.join(__dirname, "public");
 
 app.use(cors({
-  origin: "https://faculty-display.vercel.app",
+  origin: "https://faculty-status-display.vercel.app/",
   credentials: true
 }));
 app.use(express.json());
