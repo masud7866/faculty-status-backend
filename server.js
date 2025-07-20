@@ -46,7 +46,9 @@ app.post("/api/login", (req, res) => {
 });
 
 app.post("/api/update", (req, res) => {
-  if (!req.session.authenticated) return res.status(403).send("Not logged in");
+  if (!req.session.loggedIn) {
+    return res.status(403).send("Unauthorized");
+  }
   fs.writeFileSync("faculty.json", JSON.stringify(req.body, null, 2));
   res.json({ success: true });
 });
