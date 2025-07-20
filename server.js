@@ -30,12 +30,8 @@ app.use(session({
 app.use("/images", express.static("public"));
 
 // === API ROUTES ===
-app.get("/api/faculty", (req, res) => {
-  const data = fs.readFileSync("faculty.json");
-  res.json(JSON.parse(data));
-});
 app.get("/api/status", (req, res) => {
-  const data = fs.readFileSync("faculty.json");
+  const data = fs.readFileSync(path.join(__dirname, "faculty.json"));
   res.json(JSON.parse(data));
 });
 
@@ -49,12 +45,21 @@ app.post("/api/login", (req, res) => {
   }
 });
 
+app.use((req, res, next) => {
+  console.log("Session:", req.session);
+  next();
+});
+
 app.post("/api/update", (req, res) => {
   if (!req.session.loggedIn) {
+    console.log("Not logged in!");
     return res.status(403).send("Unauthorized");
   }
-  fs.writeFileSync("faculty.json", JSON.stringify(req.body, null, 2));
-  res.json({ success: true });
+
+  const newData = req.body;
+
+  fs.writeFileSync(path.join(__dirname, "faculty.json"), JSON.stringify(newData, null, 2));
+  res.sendStatus(200);
 });
 
 app.get("/api/logout", (req, res) => {
