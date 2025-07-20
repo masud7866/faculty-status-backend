@@ -19,7 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: "secret123",
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false,
+  cookie: {
+    secure: true, // true = send only over HTTPS
+    sameSite: 'none' // must be 'none' for cross-site cookies
+  }
 }));
 
 // Serve images (optional)
