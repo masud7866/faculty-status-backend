@@ -5,11 +5,10 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
-const allowedOrigin = "https://faculty-status-display.vercel.app";
 
 // Allow frontend access
 app.use(cors({
-  origin: allowedOrigin,
+  origin: "https://faculty-status-display.vercel.app",
   credentials: true
 }));
 app.use(express.json());
@@ -22,7 +21,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     secure: true, // true = send only over HTTPS
-    sameSite: 'none' // must be 'none' for cross-site cookies
+    sameSite: "none" // must be 'none' for cross-site cookies
   }
 }));
 
