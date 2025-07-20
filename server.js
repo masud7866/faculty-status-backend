@@ -5,9 +5,13 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const allowedOrigin = "https://faculty-status-display.vercel.app";
 
 // Allow frontend access
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigin,
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
