@@ -30,7 +30,7 @@ app.use(session({
 app.use("/images", express.static("public"));
 
 // === API ROUTES ===
-app.get("/api/status", (req, res) => {
+app.get("/api/faculty", (req, res) => {
   const data = fs.readFileSync(path.join(__dirname, "faculty.json"));
   res.json(JSON.parse(data));
 });
