@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Md Abdur Razzak",
+    "image": "/images/fac1.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Partho Sarathi Sarker",
+    "image": "/images/fac2.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Md. Riadul Islam",
+    "image": "/images/fac3.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Md. Tariqul Islam",
+    "image": "/images/fac4.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Md. Masudur Rahman",
+    "image": "/images/fac5.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Md Zahid Akon",
+    "image": "/images/fac6.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Mohammad Rony",
+    "image": "/images/fac7.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Amartya Kundu Durjoy",
+    "image": "/images/fac8.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Md Minhaj Ul Islam",
+    "image": "/images/fac9.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Md Yeakob Ali",
+    "image": "/images/fac10.jpg",
+    "status": "in_class"
+  }
+]
