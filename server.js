@@ -23,7 +23,7 @@ app.use(session({
 }));
 
 // Serve images (optional)
-app.use("/images", express.static(path.join(__dirname, "public")));
+app.use("/images", express.static("public"));
 
 // === API ROUTES ===
 app.get("/api/faculty", (req, res) => {
