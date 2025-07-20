@@ -42,10 +42,10 @@ app.get("/api/status", (req, res) => {
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "admin" && password === "admin123") {
-    req.session.authenticated = true;
-    res.json({ success: true });
+    req.session.loggedIn = true;
+    res.sendStatus(200);
   } else {
-    res.status(401).json({ success: false, message: "Invalid credentials" });
+    res.sendStatus(401);
   }
 });
 
