@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Sessions
+app.set("trust proxy", 1);
 app.use(session({
   secret: "secret123",
   resave: false,
@@ -38,9 +39,9 @@ app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "admin" && password === "admin123") {
     req.session.loggedIn = true;
-    res.sendStatus(200);
+    res.status(200).json({ success: true });
   } else {
-    res.sendStatus(401);
+    res.status(401).json({ error: "Invalid credentials" });
   }
 });
 
