@@ -1,52 +1,105 @@
 [
   {
     "name": "Md Abdur Razzak",
+    "designation": "Head & Assistant Professor",
+    "contact": "01746671227",
+    "email": "razzak.buet@gmail.com",
     "image": "/images/fac1.jpg",
     "status": "in_class"
   },
   {
     "name": "Partho Sarathi Sarker",
+    "designation": "Deputy Head & Assistant Professor",
+    "contact": "01926203351",
+    "email": "parthosarker93@gmail.com",
     "image": "/images/fac2.jpg",
     "status": "in_class"
   },
   {
     "name": "Md. Riadul Islam",
+    "designation": "Additional Head & Assistant Professor",
+    "contact": "01842611852",
+    "email": "riadnwu@gmail.com",
     "image": "/images/fac3.jpg",
     "status": "in_class"
   },
   {
     "name": "Md. Tariqul Islam",
+    "designation": "Lecturer",
+    "contact": "01842733104",
+    "email": "tariq.ugv@gmail.com",
     "image": "/images/fac4.jpg",
     "status": "in_class"
   },
   {
     "name": "Md. Masudur Rahman",
+    "designation": "Lecturer",
+    "contact": "01731279192",
+    "email": "masud7866@gmail.com",
     "image": "/images/fac5.jpg",
     "status": "in_class"
   },
   {
     "name": "Md Zahid Akon",
+    "designation": "Lecturer",
+    "contact": "01703436278",
+    "email": "akonzahid0713@gmail.com",
     "image": "/images/fac6.jpg",
     "status": "in_class"
   },
   {
     "name": "Mohammad Rony",
+    "designation": "Lecturer",
+    "contact": "01537582635",
+    "email": "ronymohammad229@gmail.com",
     "image": "/images/fac7.jpg",
     "status": "in_class"
   },
   {
     "name": "Amartya Kundu Durjoy",
+    "designation": "Lecturer",
+    "contact": "01766338973",
+    "email": "amartyakundudurjoy@gmail.com",
     "image": "/images/fac8.jpg",
     "status": "in_class"
   },
   {
     "name": "Md Minhaj Ul Islam",
+    "designation": "Lecturer",
+    "contact": "01784463101",
+    "email": "minhaj17.cse@bu.ac.bd",
     "image": "/images/fac9.jpg",
     "status": "in_class"
   },
   {
-    "name": "Md Yeakob Ali",
+    "name": "Md Yeakob Ali","designation": "Lecturer",
+    "contact": "01859672304",
+    "email": "yeakob677@gmail.com",
     "image": "/images/fac10.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Abdul Aziz",
+    "designation": "Lab Instructor",
+    "contact": "01703661571",
+    "email": "aziz2022.abf@gmail.com",
+    "image": "/images/fac11.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Ahad Khan",
+    "designation": "Lab Instructor",
+    "contact": "01765447491",
+    "email": "ugv.ahadkhan@gmail.com",
+    "image": "/images/fac12.jpg",
+    "status": "in_class"
+  },
+  {
+    "name": "Galib Jaman",
+    "designation": "Lab Instructor",
+    "contact": "01766555213",
+    "email": "ugv.galibjaman@gmail.com",
+    "image": "/images/fac13.jpg",
     "status": "in_class"
   }
 ]
