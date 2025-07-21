@@ -62,12 +62,17 @@ app.post("/api/update", (req, res) => {
   res.sendStatus(200);
 });
 
-app.post('/api/logout', (req, res) => {
-  res.clearCookie('connect.sid'); // your cookie name
-  req.session?.destroy(() => {
-    res.sendStatus(200);
+app.post("/api/logout", (req, res) => {
+  req.session.destroy(err => {
+    if (err) return res.status(500).json({ success: false });
+    res.clearCookie("connect.sid", {
+      sameSite: "none",
+      secure: true
+    });
+    res.json({ success: true });
   });
 });
+
 
 // Default route
 app.get("/", (req, res) => {
