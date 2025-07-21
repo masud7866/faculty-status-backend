@@ -62,9 +62,11 @@ app.post("/api/update", (req, res) => {
   res.sendStatus(200);
 });
 
-app.get("/api/logout", (req, res) => {
-  req.session.destroy();
-  res.json({ success: true });
+app.post('/api/logout', (req, res) => {
+  res.clearCookie('connect.sid'); // your cookie name
+  req.session?.destroy(() => {
+    res.sendStatus(200);
+  });
 });
 
 // Default route
