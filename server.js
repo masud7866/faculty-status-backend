@@ -72,7 +72,13 @@ app.post("/api/logout", (req, res) => {
     res.json({ success: true });
   });
 });
-
+app.get("/api/check-login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.json({ loggedIn: true });
+  } else {
+    res.status(401).json({ loggedIn: false });
+  }
+});
 
 // Default route
 app.get("/", (req, res) => {
