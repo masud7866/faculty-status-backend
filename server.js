@@ -1,184 +1,151 @@
 const express = require("express");
 const session = require("express-session");
 const fs = require("fs");
-const cors = require("cors");
 const path = require("path");
+const cors = require("cors");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: "https://faculty-status-display.vercel.app",
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
-app.set("trust proxy", 1);
-app.use(session({
-  secret: "secret123",
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: true,
-    sameSite: "none"
-  }
-}));
+const facultyPath = path.join(__dirname, "faculty.json");
 
-app.use("/images", express.static("public"));
-
-// === UTILITY FUNCTIONS ===
-function getCurrentTime() {
-  const now = new Date();
-  const dhakaOffset = 6 * 60; // +0600 in minutes
-  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  return new Date(utc + dhakaOffset * 60000);
+// Utility: Load faculty data
+function loadFacultyData() {
+  const data = fs.readFileSync(facultyPath);
+  return JSON.parse(data);
 }
 
-function isNowBetween(startStr, endStr, now) {
-  const [startH, startM] = startStr.split(":").map(Number);
-  const [endH, endM] = endStr.split(":").map(Number);
+// Utility: Save faculty data
+function saveFacultyData(data) {
+  fs.writeFileSync(facultyPath, JSON.stringify(data, null, 2));
+}
+
+// Utility: Time comparison
+function isNowBetween(startTime, endTime, now = new Date()) {
+  const [startH, startM] = startTime.split(":").map(Number);
+  const [endH, endM] = endTime.split(":").map(Number);
+
   const start = new Date(now);
   start.setHours(startH, startM, 0, 0);
+
   const end = new Date(now);
   end.setHours(endH, endM, 0, 0);
+
   return now >= start && now < end;
 }
 
-function getToday() {
-  return getCurrentTime().toISOString().split("T")[0]; // YYYY-MM-DD
-}
-
-function loadFaculty() {
-  return JSON.parse(fs.readFileSync(path.join(__dirname, "faculty.json")));
-}
-
-function saveFaculty(data) {
-  fs.writeFileSync(path.join(__dirname, "faculty.json"), JSON.stringify(data, null, 2));
-}
-
-// === SCHEDULED SMART STATUS LOGIC ===
-setInterval(() => {
-  const now = getCurrentTime();
-  const currentDay = now.toLocaleDateString("en-US", { weekday: "long", timeZone: "Asia/Dhaka" });
-  const todayStr = getToday();
-  const facultyData = loadFaculty();
-
-  facultyData.forEach(fac => {
-    // 1. Manual override handling
-    if (fac.override && fac.override.until && new Date(fac.override.until) > now) {
-      fac.status = fac.override.status;
-      return;
-    } else {
-      delete fac.override; // clear expired
-    }
-
-    // 2. Weekend check
-    if (fac.weekends && fac.weekends.includes(currentDay)) {
-      fac.status = "on_weekend";
-      return;
-    }
-
-    // 3. Class time check
-    let inClass = false;
-    if (fac.classTimes && fac.classTimes[currentDay]) {
-      for (const time of fac.classTimes[currentDay]) {
-        if (isNowBetween(time.start, time.end, now)) {
-          fac.status = "in_class";
-          inClass = true;
-          break;
-        }
-      }
-    }
-
-    if (inClass) return;
-
-    // 4. Office hour check
-    let inOffice = false;
-    if (fac.officeHours && fac.officeHours[currentDay]) {
-      for (const time of fac.officeHours[currentDay]) {
-        if (isNowBetween(time.start, time.end, now)) {
-          fac.status = "at_department";
-          inOffice = true;
-          break;
-        }
-      }
-    }
-
-    if (inOffice) return;
-
-    // 5. Default fallback
-    fac.status = "off_duty";
-  });
-
-  saveFaculty(facultyData);
-  console.log(`[AUTO] Statuses updated at ${now.toLocaleTimeString("en-US", { timeZone: "Asia/Dhaka" })}`);
-}, 60 * 1000); // every minute
-
-// === API ROUTES ===
+// API: Get all faculty data
 app.get("/api/faculty", (req, res) => {
-  res.json(loadFaculty());
+  const data = loadFacultyData();
+  res.json(data);
 });
 
+// API: Update a faculty status
+app.post("/api/update", (req, res) => {
+  const { name, status, duration } = req.body;
+  const data = loadFacultyData();
+
+  const faculty = data.find((f) => f.name === name);
+  if (!faculty) return res.status(404).json({ message: "Faculty not found" });
+
+  faculty.status = status;
+  faculty.lastUpdated = new Date().toISOString();
+
+  const now = new Date();
+  if (duration === "1hr") {
+    faculty.manualOverrideUntil = new Date(now.getTime() + 60 * 60 * 1000).toISOString();
+  } else if (duration === "today") {
+    const endOfDay = new Date(now);
+    endOfDay.setHours(23, 59, 59, 999);
+    faculty.manualOverrideUntil = endOfDay.toISOString();
+  }
+
+  saveFacultyData(data);
+  res.json({ message: "Status updated successfully" });
+});
+
+// API: Check login
+app.get("/api/check-login", (req, res) => {
+  res.json({ loggedIn: req.session.loggedIn || false });
+});
+
+// API: Login
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "admin" && password === "admin123") {
     req.session.loggedIn = true;
-    res.status(200).json({ success: true });
+    res.json({ message: "Login successful" });
   } else {
-    res.status(401).json({ error: "Invalid credentials" });
+    res.status(401).json({ message: "Invalid credentials" });
   }
 });
 
-app.use((req, res, next) => {
-  console.log("Session:", req.session);
-  next();
-});
-
-app.post("/api/update", (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.status(403).send("Unauthorized");
-  }
-
-  const updates = req.body; // Expect full faculty array
-  const facultyData = loadFaculty();
-
-  updates.forEach(update => {
-    const fac = facultyData.find(f => f.email === update.email);
-    if (fac) {
-      fac.override = {
-        status: update.status,
-        until: update.duration === "1hr"
-          ? new Date(Date.now() + 60 * 60 * 1000).toISOString()
-          : new Date(new Date().setHours(23, 59, 59, 999)).toISOString()
-      };
-      fac.status = update.status;
-    }
-  });
-
-  saveFaculty(facultyData);
-  res.sendStatus(200);
-});
-
+// API: Logout
 app.post("/api/logout", (req, res) => {
-  req.session.destroy(err => {
-    if (err) return res.status(500).json({ success: false });
-    res.clearCookie("connect.sid", {
-      sameSite: "none",
-      secure: true
-    });
-    res.json({ success: true });
-  });
+  req.session.destroy();
+  res.json({ message: "Logout successful" });
 });
 
-app.get("/api/check-login", (req, res) => {
-  res.json({ loggedIn: !!req.session.loggedIn });
-});
+// Auto-update every minute
+setInterval(() => {
+  const data = loadFacultyData();
+  const now = new Date();
+  const currentDay = now.toLocaleDateString("en-US", { weekday: "long" });
 
-// Default
-app.get("/", (req, res) => {
-  res.send("Backend is running. Try /api/faculty");
-});
+  for (const fac of data) {
+    // 1. Check manual override
+    if (fac.manualOverrideUntil && new Date(fac.manualOverrideUntil) > now) {
+      continue;
+    }
 
+    // 2. Check if today is a weekend for this faculty
+    if (fac.weekends && fac.weekends.includes(currentDay)) {
+      fac.status = "on_weekend";
+      continue;
+    }
+
+    // 3. Check class times for today
+    const classToday = fac.classTimes?.[currentDay] || [];
+    let inClass = false;
+    for (const slot of classToday) {
+      if (isNowBetween(slot.start, slot.end, now)) {
+        fac.status = "in_class";
+        inClass = true;
+        break;
+      }
+    }
+    if (inClass) continue;
+
+    // 4. Check office hours for today
+    const officeToday = fac.officeHours?.[currentDay] || [];
+    let inOffice = false;
+    for (const slot of officeToday) {
+      if (isNowBetween(slot.start, slot.end, now)) {
+        fac.status = "at_department";
+        inOffice = true;
+        break;
+      }
+    }
+    if (inOffice) continue;
+
+    // 5. Default fallback
+    fac.status = "off_duty";
+  }
+
+  saveFacultyData(data);
+}, 60000); // 1 minute
+
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

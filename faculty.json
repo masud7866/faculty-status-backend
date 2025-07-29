@@ -7,9 +7,25 @@
     "image": "/images/fac1.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "14"],
-    "officeHours": { "start": "09", "end": "17" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "09:00", "end": "10:00"}],
+      "2": [{"start": "13:00", "end": "14:00"}, {"start": "14:00", "end": "15:00"}],
+      "3": [],
+      "4": [{"start": "09:00", "end": "10:00"}],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "08:30", "end": "15:00"}],
+      "1": [{"start": "08:30", "end": "15:00"}],
+      "2": [{"start": "08:30", "end": "15:00"}],
+      "3": [{"start": "08:30", "end": "15:30"}],
+      "4": [],
+      "5": [{"start": "16:00", "end": "18:00"}],
+      "6": [{"start": "08:30", "end": "20:00"}]
+    },
+    "weekends": [4,5]
   },
   {
     "name": "Partho Sarathi Sarker",
@@ -19,8 +35,24 @@
     "image": "/images/fac2.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["10", "11", "14"],
-    "officeHours": { "start": "09", "end": "17" },
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "10:00", "end": "11:00"}],
+      "2": [{"start": "11:00", "end": "12:00"}, {"start": "14:00", "end": "15:00"}],
+      "3": [],
+      "4": [{"start": "10:00", "end": "11:00"}],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "11:00", "end": "17:00"}],
+      "1": [{"start": "09:00", "end": "17:00"}],
+      "2": [{"start": "09:00", "end": "17:00"}],
+      "3": [{"start": "10:00", "end": "18:00"}],
+      "4": [{"start": "10:00", "end": "19:00"}],
+      "5": [{"start": "18:00", "end": "19:00"}],
+      "6": []
+    },
     "weekends": [5, 6]
   },
   {
@@ -31,8 +63,24 @@
     "image": "/images/fac3.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "15"],
-    "officeHours": { "start": "09", "end": "17" },
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "09:00", "end": "10:00"}],
+      "2": [{"start": "13:00", "end": "14:00"}],
+      "3": [{"start": "15:00", "end": "16:00"}],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "10:00", "end": "17:00"}],
+      "1": [{"start": "10:00", "end": "17:00"}],
+      "2": [{"start": "11:00", "end": "17:00"}],
+      "3": [{"start": "09:00", "end": "17:00"}],
+      "4": [{"start": "11:00", "end": "20:00"}],
+      "5": [{"start": "16:00", "end": "18:00"}],
+      "6": []
+    },
     "weekends": [5, 6]
   },
   {
@@ -43,9 +91,29 @@
     "image": "/images/fac4.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "10", "11"],
-    "officeHours": { "start": "08", "end": "16" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [
+        {"start": "09:00", "end": "10:00"},
+        {"start": "10:00", "end": "11:00"},
+        {"start": "11:00", "end": "12:00"}
+      ],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [],
+      "1": [{"start": "10:00", "end": "18:00"}],
+      "2": [{"start": "10:00", "end": "17:00"}],
+      "3": [{"start": "10:00", "end": "17:00"}],
+      "4": [{"start": "11:00", "end": "20:00"}],
+      "5": [{"start": "16:00", "end": "17:00"}],
+      "6": [{"start": "12:00", "end": "20:00"}]
+    },
+    "weekends": [0, 5]
   },
   {
     "name": "Md. Masudur Rahman",
@@ -55,10 +123,31 @@
     "image": "/images/fac5.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "14"],
-    "officeHours": { "start": "09", "end": "17" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [
+        {"start": "09:00", "end": "10:00"},
+        {"start": "13:00", "end": "14:00"},
+        {"start": "14:00", "end": "15:00"}
+      ],
+      "2": [],
+      "3": [{"start": "09:00", "end": "10:00"}],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "10:00", "end": "17:00"}],
+      "1": [{"start": "10:00", "end": "17:00"}],
+      "2": [{"start": "11:00", "end": "18:00"}],
+      "3": [{"start": "10:00", "end": "17:00"}],
+      "4": [],
+      "5": [{"start": "19:00", "end": "23:00"}],
+      "6": [{"start": "13:00", "end": "21:00"}]
+    },
+    "weekends": [4, 5]
   },
+
   {
     "name": "Md Zahid Akon",
     "designation": "Lecturer",
@@ -67,10 +156,27 @@
     "image": "/images/fac6.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "14"],
-    "officeHours": { "start": "09", "end": "17" },
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "09:00", "end": "10:00"}, {"start": "13:00", "end": "14:00"}],
+      "2": [{"start": "10:00", "end": "11:00"}],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "09:00", "end": "17:00"}],
+      "1": [{"start": "09:00", "end": "17:00"}],
+      "2": [{"start": "09:00", "end": "17:00"}],
+      "3": [{"start": "09:00", "end": "16:00"}],
+      "4": [{"start": "08:00", "end": "17:00"}],
+      "5": [],
+      "6": []
+    },
     "weekends": [5, 6]
   },
+
   {
     "name": "Mohammad Rony",
     "designation": "Lecturer",
@@ -79,10 +185,30 @@
     "image": "/images/fac7.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "14"],
-    "officeHours": { "start": "09", "end": "17" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "09:00", "end": "10:00"}, {"start": "13:00", "end": "14:00"}],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "10:00", "end": "17:00"}],
+      "1": [{"start": "10:00", "end": "18:00"}],
+      "2": [{"start": "11:00", "end": "18:00"}],
+      "3": [{"start": "10:00", "end": "15:00"}],
+      "4": [],
+      "5": [
+        {"start": "10:00", "end": "11:00"},
+        {"start": "17:00", "end": "19:00"}
+      ],
+      "6": [{"start": "11:00", "end": "21:00"}]
+    },
+    "weekends": [4, 5]
   },
+
   {
     "name": "Amartya Kundu Durjoy",
     "designation": "Lecturer",
@@ -91,10 +217,27 @@
     "image": "/images/fac8.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "14"],
-    "officeHours": { "start": "09", "end": "17" },
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "09:00", "end": "10:00"}, {"start": "13:00", "end": "14:00"}],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "11:00", "end": "18:00"}],
+      "1": [{"start": "12:00", "end": "18:00"}],
+      "2": [{"start": "12:00", "end": "18:00"}],
+      "3": [{"start": "12:00", "end": "18:00"}],
+      "4": [{"start": "12:00", "end": "21:00"}],
+      "5": [{"start": "18:00", "end": "20:00"}],
+      "6": []
+    },
     "weekends": [5, 6]
   },
+
   {
     "name": "Md Minhaj Ul Islam",
     "designation": "Lecturer",
@@ -103,10 +246,27 @@
     "image": "/images/fac9.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "14"],
-    "officeHours": { "start": "09", "end": "17" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "09:00", "end": "10:00"}, {"start": "13:00", "end": "14:00"}],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "09:00", "end": "17:00"}],
+      "1": [{"start": "09:00", "end": "17:00"}],
+      "2": [{"start": "10:00", "end": "17:00"}],
+      "3": [{"start": "10:00", "end": "17:00"}],
+      "4": [],
+      "5": [],
+      "6": [{"start": "11:00", "end": "21:00"}]
+    },
+    "weekends": [4, 5]
   },
+
   {
     "name": "Md Yeakob Ali",
     "designation": "Lecturer",
@@ -115,10 +275,27 @@
     "image": "/images/fac10.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["09", "13", "14"],
-    "officeHours": { "start": "09", "end": "17" },
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "09:00", "end": "10:00"}, {"start": "13:00", "end": "14:00"}],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "10:00", "end": "17:00"}],
+      "1": [{"start": "08:00", "end": "14:00"}],
+      "2": [{"start": "11:00", "end": "17:00"}],
+      "3": [{"start": "10:00", "end": "17:00"}],
+      "4": [{"start": "13:00", "end": "22:00"}],
+      "5": [{"start": "14:00", "end": "20:00"}],
+      "6": []
+    },
     "weekends": [5, 6]
   },
+
   {
     "name": "Abdul Aziz",
     "designation": "Lab Instructor",
@@ -127,10 +304,27 @@
     "image": "/images/fac11.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["10", "11"],
-    "officeHours": { "start": "08", "end": "16" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "10:00", "end": "11:00"}],
+      "2": [{"start": "11:00", "end": "12:00"}],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "09:00", "end": "17:00"}],
+      "1": [{"start": "09:00", "end": "17:00"}],
+      "2": [{"start": "09:00", "end": "17:00"}],
+      "3": [{"start": "08:00", "end": "18:00"}],
+      "4": [{"start": "08:00", "end": "14:00"}],
+      "5": [],
+      "6": [{"start": "12:00", "end": "22:00"}]
+    },
+    "weekends": [5]
   },
+
   {
     "name": "Ahad Khan",
     "designation": "Lab Instructor",
@@ -139,10 +333,27 @@
     "image": "/images/fac12.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["10", "11"],
-    "officeHours": { "start": "08", "end": "16" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "10:00", "end": "11:00"}],
+      "2": [{"start": "11:00", "end": "12:00"}],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "09:00", "end": "17:00"}],
+      "1": [{"start": "09:00", "end": "17:00"}],
+      "2": [{"start": "10:00", "end": "17:00"}],
+      "3": [{"start": "10:00", "end": "17:00"}],
+      "4": [{"start": "09:00", "end": "18:00"}],
+      "5": [],
+      "6": [{"start": "09:00", "end": "18:00"}]
+    },
+    "weekends": [5]
   },
+
   {
     "name": "Galib Jaman",
     "designation": "Lab Instructor",
@@ -151,8 +362,24 @@
     "image": "/images/fac13.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
-    "classTimes": ["10", "11"],
-    "officeHours": { "start": "08", "end": "16" },
-    "weekends": [5, 6]
+    "classTimes": {
+      "0": [],
+      "1": [{"start": "10:00", "end": "11:00"}],
+      "2": [{"start": "11:00", "end": "12:00"}],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
+    },
+    "officeHours": {
+      "0": [{"start": "09:00", "end": "17:00"}],
+      "1": [{"start": "09:00", "end": "16:00"}],
+      "2": [{"start": "09:00", "end": "16:00"}],
+      "3": [{"start": "09:00", "end": "17:00"}],
+      "4": [{"start": "09:00", "end": "17:00"}],
+      "5": [],
+      "6": [{"start": "09:00", "end": "19:00"}]
+    },
+    "weekends": [5]
   }
 ]
