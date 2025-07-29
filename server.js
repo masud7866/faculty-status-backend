@@ -94,17 +94,17 @@ function getCurrentStatus(faculty) {
   const timeStr = now.toTimeString().substring(0, 5); // "HH:MM"
 
   // Check manual override
-  if (faculty.manual && faculty.manual.status && faculty.manual.expiresAt) {
-    const expiry = new Date(faculty.manual.expiresAt);
+  if (faculty.manualOverride && faculty.overrideExpiry) {
+    const expiry = new Date(faculty.overrideExpiry);
     if (now < expiry) {
-      return faculty.manual.status;
+      return faculty.manualOverride;
     } else {
-      delete faculty.manual; // expired
+      delete faculty.manualOverride; // expired
     }
   }
 
   // Check if today is their weekend
-  if (faculty.weekends?.includes(day)) {
+  if (faculty.weekend?.includes(day)) {
     return "on_weekend";
   }
 
