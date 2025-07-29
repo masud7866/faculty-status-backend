@@ -14,9 +14,13 @@ app.use(cors({
 app.use(express.json());
 app.use(
   session({
-    secret: "your-secret-key",
+    secret: "secret123",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    ookie: {
+    secure: true, // true = send only over HTTPS
+    sameSite: "none" // must be 'none' for cross-site cookies
+  }
   })
 );
 
