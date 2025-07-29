@@ -51,15 +51,27 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/update", (req, res) => {
-  if (!req.session.loggedIn) {
-    console.log("Not logged in!");
-    return res.status(403).send("Unauthorized");
-  }
+  if (!req.session.loggedIn) return res.status(403).send("Unauthorized");
 
-  const newData = req.body;
+  const overrides = req.body;
 
-  fs.writeFileSync(path.join(__dirname, "faculty.json"), JSON.stringify(newData, null, 2));
-  res.sendStatus(200);
+  // Load current data
+  const data = JSON.parse(fs.readFileSync("faculty.json", "utf-8"));
+
+  const updated = data.map((f) => {
+    const override = overrides.find(o => o.name === f.name);
+    if (override) {
+      return {
+        ...f,
+        manualOverride: override.manualOverride,
+        overrideExpiry: override.overrideExpiry
+      };
+    }
+    return f;
+  });
+
+  fs.writeFileSync("faculty.json", JSON.stringify(updated, null, 2));
+  res.send({ message: "Faculty data updated." });
 });
 
 app.post("/api/logout", (req, res) => {
