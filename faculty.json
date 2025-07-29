@@ -5,7 +5,11 @@
     "contact": "01746671227",
     "email": "razzak.buet@gmail.com",
     "image": "/images/fac1.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Partho Sarathi Sarker",
@@ -13,7 +17,11 @@
     "contact": "01926203351",
     "email": "parthosarker93@gmail.com",
     "image": "/images/fac2.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["10", "11", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Md. Riadul Islam",
@@ -21,7 +29,11 @@
     "contact": "01842611852",
     "email": "riadnwu@gmail.com",
     "image": "/images/fac3.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "15"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Md. Tariqul Islam",
@@ -29,7 +41,11 @@
     "contact": "01842733104",
     "email": "tariq.ugv@gmail.com",
     "image": "/images/fac4.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "10", "11"],
+    "officeHours": { "start": "08", "end": "16" },
+    "weekends": [5, 6]
   },
   {
     "name": "Md. Masudur Rahman",
@@ -37,7 +53,11 @@
     "contact": "01731279192",
     "email": "masud7866@gmail.com",
     "image": "/images/fac5.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Md Zahid Akon",
@@ -45,7 +65,11 @@
     "contact": "01703436278",
     "email": "akonzahid0713@gmail.com",
     "image": "/images/fac6.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Mohammad Rony",
@@ -53,7 +77,11 @@
     "contact": "01537582635",
     "email": "ronymohammad229@gmail.com",
     "image": "/images/fac7.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Amartya Kundu Durjoy",
@@ -61,7 +89,11 @@
     "contact": "01766338973",
     "email": "amartyakundudurjoy@gmail.com",
     "image": "/images/fac8.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Md Minhaj Ul Islam",
@@ -69,14 +101,23 @@
     "contact": "01784463101",
     "email": "minhaj17.cse@bu.ac.bd",
     "image": "/images/fac9.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
-    "name": "Md Yeakob Ali","designation": "Lecturer",
+    "name": "Md Yeakob Ali",
+    "designation": "Lecturer",
     "contact": "01859672304",
     "email": "yeakob677@gmail.com",
     "image": "/images/fac10.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["09", "13", "14"],
+    "officeHours": { "start": "09", "end": "17" },
+    "weekends": [5, 6]
   },
   {
     "name": "Abdul Aziz",
@@ -84,7 +125,11 @@
     "contact": "01877774031",
     "email": "aziz2022.abf@gmail.com",
     "image": "/images/fac11.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["10", "11"],
+    "officeHours": { "start": "08", "end": "16" },
+    "weekends": [5, 6]
   },
   {
     "name": "Ahad Khan",
@@ -92,7 +137,11 @@
     "contact": "01765447491",
     "email": "ugv.ahadkhan@gmail.com",
     "image": "/images/fac12.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["10", "11"],
+    "officeHours": { "start": "08", "end": "16" },
+    "weekends": [5, 6]
   },
   {
     "name": "Galib Jaman",
@@ -100,6 +149,10 @@
     "contact": "01766555213",
     "email": "ugv.galibjaman@gmail.com",
     "image": "/images/fac13.jpg",
-    "status": "in_class"
+    "status": "in_class",
+    "manualOverride": { "status": null, "expiry": null },
+    "classTimes": ["10", "11"],
+    "officeHours": { "start": "08", "end": "16" },
+    "weekends": [5, 6]
   }
 ]
