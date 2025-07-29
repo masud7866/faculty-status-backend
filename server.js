@@ -85,6 +85,64 @@ app.get("/", (req, res) => {
   res.send("Backend is running. Try /api/status");
 });
 
+// === AUTO STATUS LOGIC ===
+const facultyFile = path.join(__dirname, "faculty.json");
+
+function getCurrentStatus(faculty) {
+  const now = new Date();
+  const day = now.toLocaleDateString("en-US", { weekday: "long" });
+  const timeStr = now.toTimeString().substring(0, 5); // "HH:MM"
+
+  // Check manual override
+  if (faculty.manual && faculty.manual.status && faculty.manual.expiresAt) {
+    const expiry = new Date(faculty.manual.expiresAt);
+    if (now < expiry) {
+      return faculty.manual.status;
+    } else {
+      delete faculty.manual; // expired
+    }
+  }
+
+  // Check if today is their weekend
+  if (faculty.weekends?.includes(day)) {
+    return "on_weekend";
+  }
+
+  // Check if now is in class time
+  const classesToday = faculty.classTimes?.[day] || [];
+  for (const [start, end] of classesToday) {
+    if (timeStr >= start && timeStr < end) {
+      return "in_class";
+    }
+  }
+
+  // Check if now is within office hours
+  const office = faculty.officeHours?.[day];
+  if (office && timeStr >= office[0] && timeStr < office[1]) {
+    return "at_department";
+  }
+
+  return "off_duty";
+}
+
+function updateStatuses() {
+  try {
+    const data = JSON.parse(fs.readFileSync(facultyFile));
+    const updated = data.map(faculty => ({
+      ...faculty,
+      status: getCurrentStatus(faculty)
+    }));
+    fs.writeFileSync(facultyFile, JSON.stringify(updated, null, 2));
+    console.log("Auto status updated at", new Date().toLocaleTimeString());
+  } catch (err) {
+    console.error("Failed to auto-update statuses:", err);
+  }
+}
+
+// Run every minute
+setInterval(updateStatuses, 60 * 1000);
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
