@@ -11,19 +11,17 @@ app.use(cors({
   origin: "https://faculty-status-display.vercel.app",
   credentials: true
 }));
-app.use(express.json());
-app.use(
-  session({
-    secret: "secret123",
-    resave: false,
-    saveUninitialized: false,
-    ookie: {
+app.set("trust proxy", 1);
+app.use(session({
+  secret: "secret123",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
     secure: true, // true = send only over HTTPS
     sameSite: "none" // must be 'none' for cross-site cookies
   }
-  })
-);
-
+}));
+app.use(express.urlencoded({ extended: true }));
 app.use("/images", express.static("public"));
 
 const facultyPath = path.join(__dirname, "faculty.json");
