@@ -24,6 +24,8 @@ app.use(
   })
 );
 
+app.use("/images", express.static("public"));
+
 const facultyPath = path.join(__dirname, "faculty.json");
 
 // Utility: Load faculty data
