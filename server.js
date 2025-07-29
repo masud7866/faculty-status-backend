@@ -152,7 +152,7 @@ function updateStatuses() {
 }
 
 // Run every minute
-setInterval(updateStatuses, 60 * 1000);
+setInterval(updateStatuses,1000);
 
 
 app.listen(PORT, () => {
