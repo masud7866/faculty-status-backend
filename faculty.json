@@ -4,7 +4,7 @@
     "designation": "Head & Assistant Professor",
     "contact": "01746671227",
     "email": "razzak.buet@gmail.com",
-    "image": "/images/fac1.jpg",
+    "image": "/public/fac1.jpg",
     "status": "in_class",
     "manualOverride": { "status": null, "expiry": null },
     "classTimes": {
