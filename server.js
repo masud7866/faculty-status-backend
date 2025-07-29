@@ -119,7 +119,7 @@ function getCurrentStatus(faculty) {
   // Check if now is within office hours
   const office = faculty.officeHours?.[day];
   if (office && timeStr >= office[0] && timeStr < office[1]) {
-    return "at_department";
+    return "at_dept";
   }
 
   return "off_duty";
