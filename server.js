@@ -101,7 +101,7 @@ app.get("/", (req, res) => {
 const facultyFile = path.join(__dirname, "faculty.json");
 
 function getCurrentStatus(faculty) {
-  const now = new Date();
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
   const day = now.toLocaleDateString("en-US", { weekday: "long" });
   const timeStr = now.toTimeString().substring(0, 5); // "HH:MM"
 
