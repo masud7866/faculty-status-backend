@@ -121,17 +121,28 @@ function getCurrentStatus(faculty) {
   }
 
   // Check if now is in class time
-  const classesToday = faculty.classTimes?.[day] || [];
-  for (const [start, end] of classesToday) {
-    if (timeStr >= start && timeStr < end) {
-      return "in_class";
+  const classes = faculty.classTimes?.[day];
+  if (Array.isArray(classes)) {
+    for (const cls of classes) {
+      if (
+        Array.isArray(cls) &&
+        cls.length === 2 &&
+        cls[0] < cls[1] &&
+        timeStr >= cls[0] &&
+        timeStr < cls[1]
+      ) {
+        return "in_class";
+      }
     }
   }
 
   // Check if now is within office hours
   const office = faculty.officeHours?.[day];
-  if (office && timeStr >= office[0] && timeStr < office[1]) {
-    return "at_dept";
+  if (Array.isArray(office) && office.length === 2) {
+    const [start, end] = office;
+    if (start < end && timeStr >= start && timeStr < end) {
+      return "at_dept";
+    }
   }
 
   return "off_duty";
@@ -152,7 +163,7 @@ function updateStatuses() {
 }
 updateStatuses();
 
-setInterval(updateStatuses,3000);
+setInterval(updateStatuses, 3000);
 
 
 app.listen(PORT, () => {
