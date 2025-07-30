@@ -150,9 +150,9 @@ function updateStatuses() {
     console.error("Failed to auto-update statuses:", err);
   }
 }
+updateStatuses();
 
-// Run every minute
-setInterval(updateStatuses,1000);
+setInterval(updateStatuses,3000);
 
 
 app.listen(PORT, () => {
