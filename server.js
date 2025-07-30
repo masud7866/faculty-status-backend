@@ -108,6 +108,7 @@ function getCurrentStatus(faculty) {
   // Check manual override
   if (faculty.manualOverride && faculty.overrideExpiry) {
     const expiry = new Date(faculty.overrideExpiry);
+    console.log('Expiry:', expiry, 'Now:', now);
     if (now < expiry) {
       return faculty.manualOverride;
     } else {
