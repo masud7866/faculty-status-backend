@@ -156,8 +156,8 @@ function updateStatuses() {
       return {
         ...faculty,
         status: statusObj.status,
-        room: statusObj.room || null,
-        batch: statusObj.batch || null
+        room: ["in_class"].includes(statusObj.status) ? statusObj.room || null : null,
+        batch: statusObj.status === "in_class" ? statusObj.batch || null : null
       };
     });
     fs.writeFileSync(facultyFile, JSON.stringify(updated, null, 2));
