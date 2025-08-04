@@ -110,15 +110,16 @@ function getCurrentStatus(faculty) {
     const expiry = new Date(faculty.overrideExpiry);
     console.log('Expiry:', expiry, 'Now:', now);
     if (now < expiry) {
-      return faculty.manualOverride;
+      return { status: faculty.manualOverride };
     } else {
-      delete faculty.manualOverride; // expired
+      faculty.manualOverride = null;
+      faculty.overrideExpiry = null; // expired
     }
   }
 
   // Check if today is their weekend
   if (faculty.weekend?.includes(day)) {
-    return "on_weekend";
+    return { status: "on_weekend" };
   }
 
   // Check if now is in class time
@@ -144,11 +145,11 @@ function getCurrentStatus(faculty) {
   if (Array.isArray(office) && office.length === 2) {
     const [start, end] = office;
     if (start < end && timeStr >= start && timeStr < end) {
-      return "at_dept";
+      return { status: "at_dept" };
     }
   }
 
-  return "off_duty";
+  return { status: "off_duty" };
 }
 
 function updateStatuses() {
