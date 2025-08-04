@@ -169,7 +169,7 @@ function updateStatuses() {
       };
     });
     fs.writeFileSync(facultyFile, JSON.stringify(updated, null, 2));
-    console.log("Auto status updated at", new Date().toLocaleTimeString());
+    console.log("Auto status updated at", new Date().toISOString());
   } catch (err) {
     console.error("Failed to auto-update statuses:", err);
   }
