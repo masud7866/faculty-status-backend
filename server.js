@@ -126,13 +126,15 @@ function getCurrentStatus(faculty) {
   if (Array.isArray(classes)) {
     for (const cls of classes) {
       if (
-        Array.isArray(cls) &&
-        cls.length === 2 &&
-        cls[0] < cls[1] &&
-        timeStr >= cls[0] &&
-        timeStr < cls[1]
+        cls.start < cls.end &&
+        timeStr >= cls.start &&
+        timeStr < cls.end
       ) {
-        return "in_class";
+        return {
+          status: "in_class",
+          classroom: cls.classroom || null,
+          batch: cls.batch || null
+        };
       }
     }
   }
