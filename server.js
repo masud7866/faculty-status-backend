@@ -149,13 +149,12 @@ function getCurrentStatus(faculty) {
     }
   }
 
-  // Check if in office hours (not in class)
-  const officeHours = faculty.officeHours?.[day];
-  if (Array.isArray(officeHours)) {
-    for (const slot of officeHours) {
-      if (slot.start < slot.end && timeStr >= slot.start && timeStr < slot.end) {
-        return { status: "at_dept" };
-      }
+  // Check if now is within office hours
+  const office = faculty.officeHours?.[day];
+  if (Array.isArray(office) && office.length === 2) {
+    const [start, end] = office;
+    if (start < end && timeStr >= start && timeStr < end) {
+      return { status: "at_dept" };
     }
   }
 
