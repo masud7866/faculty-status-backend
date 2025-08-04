@@ -132,7 +132,7 @@ function getCurrentStatus(faculty) {
       ) {
         return {
           status: "in_class",
-          classroom: cls.classroom || null,
+          room: cls.room || null,
           batch: cls.batch || null
         };
       }
