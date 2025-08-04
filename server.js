@@ -101,9 +101,17 @@ app.get("/", (req, res) => {
 const facultyFile = path.join(__dirname, "faculty.json");
 
 function getCurrentStatus(faculty) {
-  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
-  const day = now.toLocaleDateString("en-US", { weekday: "long" });
-  const timeStr = now.toTimeString().substring(0, 5); // "HH:MM"
+  const now = new Date(); // keep UTC time
+  const day = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'Asia/Dhaka',
+  weekday: 'long'
+}).format(new Date());
+  const timeStr = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Asia/Dhaka',
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false
+}).format(new Date());
   // Check manual override
   if (faculty.manualOverride && faculty.overrideExpiry) {
     const expiry = new Date(faculty.overrideExpiry);
