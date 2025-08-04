@@ -154,10 +154,15 @@ function getCurrentStatus(faculty) {
 function updateStatuses() {
   try {
     const data = JSON.parse(fs.readFileSync(facultyFile));
-    const updated = data.map(faculty => ({
-      ...faculty,
-      status: getCurrentStatus(faculty)
-    }));
+    const updated = data.map(faculty => {
+      const statusObj = getCurrentStatus(faculty);
+      return {
+        ...faculty,
+        status: statusObj.status,
+        classroom: statusObj.classroom || null,
+        batch: statusObj.batch || null
+      };
+    });
     fs.writeFileSync(facultyFile, JSON.stringify(updated, null, 2));
     console.log("Auto status updated at", new Date().toLocaleTimeString());
   } catch (err) {
