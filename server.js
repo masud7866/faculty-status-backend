@@ -160,7 +160,7 @@ function updateStatuses() {
       return {
         ...faculty,
         status: statusObj.status,
-        classroom: statusObj.classroom || null,
+        room: statusObj.room || null,
         batch: statusObj.batch || null
       };
     });
