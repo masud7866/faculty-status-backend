@@ -109,20 +109,6 @@ function getCurrentStatus(faculty) {
   if (faculty.manualOverride && faculty.overrideExpiry) {
     const expiry = new Date(faculty.overrideExpiry);
     if (now < expiry) {
-      if (faculty.manualOverride === "in_class") {
-        const classes = faculty.classTimes?.[day];
-        if (Array.isArray(classes)) {
-          for (const cls of classes) {
-            if (cls.start < cls.end && timeStr >= cls.start && timeStr < cls.end) {
-              return {
-                status: "in_class",
-                room: cls.room || null,
-                batch: cls.batch || null
-              };
-            }
-          }
-        }
-      }
       return { status: faculty.manualOverride };
     } else {
       faculty.manualOverride = null;
