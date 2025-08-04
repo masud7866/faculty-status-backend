@@ -163,19 +163,6 @@ function getCurrentStatus(faculty) {
 }
 
 
-
-  // Check if now is within office hours
-  const office = faculty.officeHours?.[day];
-  if (Array.isArray(office) && office.length === 2) {
-    const [start, end] = office;
-    if (start < end && timeStr >= start && timeStr < end) {
-      return { status: "at_dept" };
-    }
-  }
-
-  return { status: "off_duty" };
-}
-
 function updateStatuses() {
   try {
     const data = JSON.parse(fs.readFileSync(facultyFile));
