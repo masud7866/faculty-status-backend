@@ -104,10 +104,10 @@ function getCurrentStatus(faculty) {
   const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" }));
   const day = now.toLocaleDateString("en-US", { weekday: "long" });
   const timeStr = now.toTimeString().substring(0, 5); // "HH:MM"
-
   // Check manual override
   if (faculty.manualOverride && faculty.overrideExpiry) {
     const expiry = new Date(faculty.overrideExpiry);
+    console.log("Now:", now, "Expiry:", expiry, "Day:", day, "Time:", timeStr);
     if (now < expiry) {
       return { status: faculty.manualOverride };
     } else {
