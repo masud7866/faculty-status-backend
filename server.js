@@ -108,12 +108,25 @@ function getCurrentStatus(faculty) {
   // Check manual override
   if (faculty.manualOverride && faculty.overrideExpiry) {
     const expiry = new Date(faculty.overrideExpiry);
-    console.log('Expiry:', expiry, 'Now:', now);
     if (now < expiry) {
+      if (faculty.manualOverride === "in_class") {
+        const classes = faculty.classTimes?.[day];
+        if (Array.isArray(classes)) {
+          for (const cls of classes) {
+            if (cls.start < cls.end && timeStr >= cls.start && timeStr < cls.end) {
+              return {
+                status: "in_class",
+                room: cls.room || null,
+                batch: cls.batch || null
+              };
+            }
+          }
+        }
+      }
       return { status: faculty.manualOverride };
     } else {
       faculty.manualOverride = null;
-      faculty.overrideExpiry = null; // expired
+      faculty.overrideExpiry = null;
     }
   }
 
@@ -126,11 +139,7 @@ function getCurrentStatus(faculty) {
   const classes = faculty.classTimes?.[day];
   if (Array.isArray(classes)) {
     for (const cls of classes) {
-      if (
-        cls.start < cls.end &&
-        timeStr >= cls.start &&
-        timeStr < cls.end
-      ) {
+      if (cls.start < cls.end && timeStr >= cls.start && timeStr < cls.end) {
         return {
           status: "in_class",
           room: cls.room || null,
@@ -139,6 +148,21 @@ function getCurrentStatus(faculty) {
       }
     }
   }
+
+  // Check if in office hours (not in class)
+  const officeHours = faculty.officeHours?.[day];
+  if (Array.isArray(officeHours)) {
+    for (const slot of officeHours) {
+      if (slot.start < slot.end && timeStr >= slot.start && timeStr < slot.end) {
+        return { status: "at_dept" };
+      }
+    }
+  }
+
+  return { status: "off_duty" };
+}
+
+
 
   // Check if now is within office hours
   const office = faculty.officeHours?.[day];
