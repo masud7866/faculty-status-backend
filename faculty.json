@@ -303,7 +303,7 @@
       ],
       "Monday": [
         {"start": "12:00", "end": "13:00", "room": "B2-403", "batch": "7th-CSE-B"},
-        {"start": "12:00", "end": "13:00", "room": "B2-203", "batch": "7th-CSE-A"}
+        {"start": "15:00", "end": "18:00", "room": "B2-203", "batch": "7th-CSE-A"}
       ],
       "Tuesday": [
         {"start": "15:00", "end": "16:00", "room": "B2-404", "batch": "7th-CSE-B"},
