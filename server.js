@@ -69,8 +69,14 @@ app.post("/api/update", (req, res) => {
     }
     return f;
   });
+  const hasChanges = updated.some((f, i) =>
+    f.manualOverride !== data[i].manualOverride ||
+    f.overrideExpiry !== data[i].overrideExpiry
+  );
+  if (hasChanges) {
+    fs.writeFileSync("faculty.json", JSON.stringify(updated, null, 2));
+  }
 
-  fs.writeFileSync("faculty.json", JSON.stringify(updated, null, 2));
   res.send({ message: "Faculty data updated." });
 });
 
