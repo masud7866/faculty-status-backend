@@ -103,15 +103,15 @@ const facultyFile = path.join(__dirname, "faculty.json");
 function getCurrentStatus(faculty) {
   const now = new Date(); // keep UTC time
   const day = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'Asia/Dhaka',
-  weekday: 'long'
-}).format(new Date());
+    timeZone: 'Asia/Dhaka',
+    weekday: 'long'
+  }).format(new Date());
   const timeStr = new Intl.DateTimeFormat('en-GB', {
-  timeZone: 'Asia/Dhaka',
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: false
-}).format(new Date());
+    timeZone: 'Asia/Dhaka',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }).format(new Date());
   // Check manual override
   if (faculty.manualOverride && faculty.overrideExpiry) {
     const expiry = new Date(faculty.overrideExpiry);
@@ -134,6 +134,7 @@ function getCurrentStatus(faculty) {
   if (Array.isArray(classes)) {
     for (const cls of classes) {
       if (cls.start < cls.end && timeStr >= cls.start && timeStr < cls.end) {
+        console.log("Faculty in class:", faculty.name, "Room:", cls.room, "Batch:", cls.batch);
         return {
           status: "in_class",
           room: cls.room || null,
