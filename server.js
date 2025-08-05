@@ -164,9 +164,7 @@ function updateStatuses() {
       const statusObj = getCurrentStatus(faculty);
       return {
         ...faculty,
-        status: statusObj.status,
-        room: ["in_class"].includes(statusObj.status) ? statusObj.room || null : null,
-        batch: statusObj.status === "in_class" ? statusObj.batch || null : null
+        status: statusObj
       };
     });
     fs.writeFileSync(facultyFile, JSON.stringify(updated, null, 2));
