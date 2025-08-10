@@ -400,7 +400,8 @@
       "Sunday": [
         {"start": "09:00", "end": "10:00", "room": "B2-304", "batch": "3rd-CSE-A"},
         {"start": "12:00", "end": "13:00", "room": "B2-404", "batch": "5th-CSE-B"},
-        {"start": "13:00", "end": "14:00", "room": "B2-404", "batch": "5th-CSE-A"}
+        {"start": "13:00", "end": "14:00", "room": "B2-404", "batch": "5th-CSE-A"},
+        {"start": "14:00", "end": "15:00", "room": "B2-305", "batch": "6th-CSE-B"}
       ],
       "Monday": [
         {"start": "09:00", "end": "10:00", "room": "B2-306", "batch": "3rd-CSE-B"},
