@@ -151,12 +151,14 @@
     },
     "classTimes": {
       "Saturday": [
+        {"start": "11:00", "end": "12:00", "room": "B2-406", "batch": "1st-CSE-C"},
         {"start": "12:00", "end": "13:00", "room": "B2-003", "batch": "5th-CSE-B"},
         {"start": "15:00", "end": "16:00", "room": "B2-003", "batch": "8th-CSE-B"},
         {"start": "18:00", "end": "19:00", "room": "B2-003", "batch": "8th-CSE-Evn"},
         {"start": "19:00", "end": "20:00", "room": "B2-306", "batch": "5th-CSE-Evn"}
       ],
       "Monday": [
+        {"start": "11:00", "end": "12:00", "room": "B2-406", "batch": "1st-CSE-B"},
         {"start": "12:00", "end": "13:00", "room": "B2-305", "batch": "5th-CSE-A"},
         {"start": "13:00", "end": "14:00", "room": "B2-003", "batch": "6th-CSE-B"},
         {"start": "14:00", "end": "15:00", "room": "B2-203", "batch": "5th-CSE-C"},
@@ -164,17 +166,21 @@
         {"start": "16:00", "end": "17:00", "room": "B2-305", "batch": "5th-CSE-B"}
       ],
       "Tuesday": [
+        {"start": "10:00", "end": "11:00", "room": "B2-306", "batch": "1st-CSE-B"},
+        {"start": "11:00", "end": "12:00", "room": "B2-206", "batch": "1st-CSE-A"},
         {"start": "14:00", "end": "15:00", "room": "B2-003", "batch": "8th-CSE-B"},
         {"start": "15:00", "end": "16:00", "room": "B2-003", "batch": "8th-CSE-A"}
       ],
       "Wednesday": [
+        {"start": "11:00", "end": "12:00", "room": "B2-406", "batch": "1st-CSE-A"},
         {"start": "12:00", "end": "13:00", "room": "B2-003", "batch": "6th-CSE-B"},
         {"start": "13:00", "end": "14:00", "room": "B2-003", "batch": "6th-CSE-A"},
         {"start": "14:00", "end": "15:00", "room": "B2-304", "batch": "5th-CSE-C"}
       ],
       "Thursday": [
         {"start": "11:00", "end": "12:00", "room": "B2-304", "batch": "6th-CSE-A"},
-        {"start": "12:00", "end": "13:00", "room": "B2-003", "batch": "5th-CSE-A"}
+        {"start": "12:00", "end": "13:00", "room": "B2-003", "batch": "5th-CSE-A"},
+        {"start": "13:00", "end": "14:00", "room": "B2-406", "batch": "1st-CSE-C"}
       ]
     },
     "manualOverride": null,
